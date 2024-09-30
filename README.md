@@ -2,6 +2,8 @@
 
 This is a simple and elegant landing page designed to showcase your portfolio. It features a modern aesthetic with a subtle particle animation background and smooth animations for text and buttons. The layout is responsive, ensuring a great experience on both desktop and mobile devices.
 
+![Screenshot 01](assets/screenshot_01.png)
+
 ## Features
 
 - **Responsive Design**: Adjusts beautifully across various screen sizes.
