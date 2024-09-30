@@ -1,7 +1,5 @@
 # Personal Landing Page
 
-## Description
-
 This is a simple and elegant landing page designed to showcase your portfolio. It features a modern aesthetic with a subtle particle animation background and smooth animations for text and buttons. The layout is responsive, ensuring a great experience on both desktop and mobile devices.
 
 ## Features
@@ -46,7 +44,7 @@ You can customize the following aspects of the landing page:
 
 ## Demo
 
-A live demo of the landing page can be viewed at [oxitorenk.com](http://oxitorenk.com).
+A live demo of the landing page can be viewed at [oxitorenk.com](http://oxitorenk.com)
 
 ## License
 
