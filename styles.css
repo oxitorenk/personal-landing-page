@@ -1,0 +1,141 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure consistent box model */
+}
+
+/* HTML and Body Styles */
+html, body {
+    height: 100%; /* Full height for the body */
+    overflow: hidden; /* Prevent scrolling */
+    font-family: 'Roboto', sans-serif; /* Default font for body */
+}
+
+/* Subtle Dark Gradient Background */
+.background-gradient {
+    position: absolute; /* Position behind other elements */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: linear-gradient(270deg, #000000, #0d0d0d); /* Dark gradient */
+    z-index: 0; /* Behind other elements */
+}
+
+/* Canvas for Particle Animation */
+.particles {
+    position: absolute; /* Fill entire container */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 1; /* Above the gradient background */
+}
+
+/* Body Flexbox Styling */
+body {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Container for Main Content */
+.container {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Stack text and button vertically */
+    height: 80vh; /* Maintain height for centering */
+    width: 100%; /* Full width */
+    z-index: 2; /* Above particles */
+}
+
+/* Heading Styles */
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+    font-size: 3rem; /* Larger font size */
+    font-weight: 300; /* Thinner weight */
+    color: #f5f5f5; /* Soft off-white text */
+    text-align: center; /* Center text */
+    letter-spacing: 0.05em; /* Slightly tighter letter spacing */
+    text-shadow:
+            0 0 2px rgba(255, 255, 255, 0.3), /* Subtle white glow */
+            0 0 5px rgba(255, 255, 255, 0.2); /* Wider glow */
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
+}
+
+/* Button Styles */
+.button {
+    margin-top: 20px; /* Spacing between heading and button */
+    padding: 8px 16px; /* Reduced padding */
+    background-color: #f5f5f5; /* Light button color */
+    color: #000; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Bold text for emphasis */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    animation: buttonFadeIn 1s ease-out; /* Intro animation for the button */
+}
+
+.button:hover {
+    background-color: #e0e0e0; /* Darker button color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Accessibility: Focus Effect */
+.button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Custom focus outline */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully opaque */
+    }
+}
+
+/* Button Intro Animation */
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0; /* Start fully transparent */
+        transform: scale(0.8); /* Start smaller */
+    }
+    100% {
+        opacity: 1; /* End fully opaque */
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+/* Footer Styles */
+footer {
+    width: 100%; /* Full width */
+    padding: 20px; /* Added padding */
+    position: absolute; /* Position footer at the bottom */
+    bottom: 0; /* Align footer to the bottom */
+    z-index: 2; /* Ensure footer is above overlay */
+}
+
+footer p {
+    font-family: 'Roboto', sans-serif; /* Keep Roboto for footer */
+    font-size: 0.85rem; /* Font size for footer text */
+    font-weight: 300; /* Thinner weight */
+    color: #eaeaea; /* Off-white text for contrast */
+    text-align: center; /* Align text to the left */
+    margin: 0; /* Remove default margin */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem; /* Reduce font size on smaller screens */
+    }
+    .button {
+        font-size: 0.8rem; /* Adjust button size */
+        padding: 6px 12px; /* Adjust padding */
+    }
+}
