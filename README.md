@@ -44,7 +44,7 @@ You can customize the following aspects of the landing page:
 
 ## Demo
 
-A live demo of the landing page can be viewed at [oxitorenk.com](http://oxitorenk.com).
+A live demo of the landing page can be viewed at [oxitorenk.com](http://oxitorenk.com)
 
 ## License
 
