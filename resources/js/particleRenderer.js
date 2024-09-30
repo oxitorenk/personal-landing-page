@@ -5,64 +5,74 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
+const mouse = { x: null, y: null, radius: 150 };
 
 class Particle {
     constructor(x, y) {
-        this.x = x; // Particle's initial x position
-        this.y = y; // Particle's initial y position
-        this.size = Math.random() * 3 + 1; // Random size between 1 and 4
-        this.speedX = Math.random() * 0.5 - 0.25; // Random speed on x-axis
-        this.speedY = Math.random() * 0.5 - 0.25; // Random speed on y-axis
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() - 0.5;
+        this.speedY = Math.random() - 0.5;
     }
 
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        // Loop particles back to the other side of the canvas
-        if (this.size < 0.3) this.size = 0; // Remove very small particles
-        if (this.x > canvas.width + this.size || this.x < 0 - this.size || this.y > canvas.height + this.size || this.y < 0 - this.size) {
-            this.reset();
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < mouse.radius) {
+            const force = (mouse.radius - distance) / mouse.radius;
+            this.x -= (dx / distance) * force * 5;
+            this.y -= (dy / distance) * force * 5;
         }
     }
 
-    reset() {
-        this.x = Math.random() * canvas.width; // Random x position
-        this.y = Math.random() * canvas.height; // Random y position
-        this.size = Math.random() * 3 + 1; // Random size between 1 and 4
-    }
-
     draw() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)'; // Subtle white particles
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); // Create a circular particle
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
-        ctx.fill(); // Fill the particle with color
+        ctx.fill();
     }
 }
 
 function init() {
     particlesArray = [];
-    for (let i = 0; i < 30; i++) { // Create 30 particles
-        particlesArray.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+    for (let i = 0; i < 40; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y));
     }
 }
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     particlesArray.forEach(particle => {
-        particle.update(); // Update each particle's position
-        particle.draw(); // Draw each particle
+        particle.update();
+        particle.draw();
     });
-    requestAnimationFrame(animate); // Request the next frame
+    requestAnimationFrame(animate);
 }
 
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth; // Update canvas width
-    canvas.height = window.innerHeight; // Update canvas height
-    init(); // Reinitialize particles
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
 });
 
-// Start the animation
+window.addEventListener('mousemove', (event) => {
+    mouse.x = event.x;
+    mouse.y = event.y;
+});
+
 init();
 animate();

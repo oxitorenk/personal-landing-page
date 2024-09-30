@@ -4,21 +4,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Internet!</title>
+    <title>Things I Do</title>
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300|Montserrat:300" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
 <div class="background-gradient"></div>
 <canvas class="particles"></canvas>
+
+<nav class="navbar">
+    <span class="nav-item"><a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank">Open Source Projects</a></span>
+    <span class="nav-divider">|</span>
+    <span class="nav-item"><a href="https://www.linkedin.com/in/akbulutoguzhan" target="_blank">About</a></span>
+</nav>
+
 <div class="container">
-    <h1>I CREATE THINGS</h1>
-    <a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank" class="button">Public Repositories</a>
+    <h1>
+        <span>I</span>
+        <span id="dynamic-text"></span>
+        <span class="cursor"></span>
+    </h1>
 </div>
-<footer>
-    <p>© 2024 oxitorenk - All rights reserved.</p>
-</footer>
+
 <script src="resources/js/particleRenderer.js"></script>
+<script src="resources/js/typingAnimation.js"></script>
 </body>
 </html>
