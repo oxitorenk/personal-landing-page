@@ -83,7 +83,7 @@ body {
 }
 
 .side-menu a {
-    padding: 8px 8px 8px 24px;
+    padding: 8px 8px 8px 24px; /* Consistent padding */
     text-decoration: none;
     font-size: 1.2rem;
     color: #f5f5f5;
@@ -91,20 +91,71 @@ body {
     transition: 0.3s;
 }
 
+/* Add margin to the first item for spacing from the toggle button */
+.side-menu a:first-child {
+    margin-top: 40px; /* Adjust this value as needed */
+}
+
 .side-menu a:hover {
     color: #e0e0e0;
 }
 
-/* Button to open the menu */
 .menu-btn {
-    font-size: 1.8rem;
     cursor: pointer;
-    color: #f5f5f5;
     position: fixed;
     top: 15px;
     left: 15px;
     z-index: 6;
-    display: none;
+    display: none; /* Hide on larger screens */
+    width: 24px; /* Reduced width */
+    height: 24px; /* Reduced height */
+    justify-content: center; /* Center lines */
+    align-items: center; /* Center lines */
+    transition: all 0.3s ease; /* Smooth transition for button */
+}
+
+.line {
+    background-color: #f5f5f5; /* Color of the lines */
+    height: 3px; /* Slightly reduced height for lines */
+    width: 100%; /* Full width */
+    position: absolute; /* Position to stack lines */
+    transition: all 0.3s ease; /* Smooth transition for lines */
+    border-radius: 2px; /* Optional: rounded edges for a smoother look */
+}
+
+/* First line transformation to X */
+.line1 {
+    top: 0; /* Position the first line */
+}
+
+/* Second line transformation to X */
+.line2 {
+    top: 8px; /* Middle line */
+}
+
+/* Third line */
+.line3 {
+    top: 16px; /* Position the third line */
+}
+
+/* When menu is open */
+.menu-btn.open .line1 {
+    transform: rotate(45deg); /* Rotate first line */
+    top: 12px; /* Adjust position */
+}
+
+.menu-btn.open .line2 {
+    opacity: 0; /* Hide the middle line */
+    transition: opacity 0.3s ease; /* Smooth transition for hiding */
+}
+
+.menu-btn.open .line3 {
+    transform: rotate(-45deg); /* Rotate third line */
+    top: 12px; /* Adjust position */
+}
+
+.menu-btn:hover {
+    transform: scale(1.1); /* Scale up on hover */
 }
 
 .container {

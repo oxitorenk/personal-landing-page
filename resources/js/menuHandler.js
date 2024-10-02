@@ -1,15 +1,21 @@
 function toggleMenu() {
-    const sideMenu = document.getElementById("side-menu");
-    if (sideMenu.style.width === "250px") {
-        sideMenu.style.width = "0"; // Close the menu
+    const menu = document.getElementById("side-menu");
+    const menuBtn = document.querySelector('.menu-btn'); // Select the button
+    if (menu.style.width === "250px") { // Assuming 250px is the width of the open menu
+        menu.style.width = "0"; // Close the menu
+        menuBtn.classList.remove('open'); // Remove the open class
     } else {
-        sideMenu.style.width = "250px"; // Open the menu
+        menu.style.width = "250px"; // Open the menu
+        menuBtn.classList.add('open'); // Add the open class
     }
 }
 
-// Close the sidebar if the screen size is wider than 768px
-window.addEventListener("resize", function() {
-    if (window.innerWidth > 768) {
-        document.getElementById("side-menu").style.width = "0"; // Ensure sidebar is closed
+// Automatically close the sidebar menu on window resize
+window.addEventListener('resize', () => {
+    const menu = document.getElementById("side-menu");
+    const menuBtn = document.querySelector('.menu-btn'); // Select the button
+    if (window.innerWidth > 768) { // Set your desired breakpoint
+        menu.style.width = "0"; // Close the menu
+        menuBtn.classList.remove('open'); // Remove the open class
     }
 });
