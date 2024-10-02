@@ -27,12 +27,20 @@ html, body {
     z-index: 1;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Top Navbar for larger screens */
 .navbar {
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
     color: #f5f5f5;
     font-size: 1rem;
 }
@@ -40,6 +48,12 @@ html, body {
 .nav-item {
     margin: 0 10px;
     font-weight: 300;
+    display: inline-block;
+}
+
+.nav-divider {
+    display: inline-block;
+    margin: 0 10px;
 }
 
 .nav-item a {
@@ -51,11 +65,53 @@ html, body {
     color: #e0e0e0;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* Sidebar Menu for smaller screens */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-y: auto; /* Enable scrolling if the menu overflows */
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 40px; /* Slightly smaller padding */
+}
+
+/* Menu links */
+.side-menu a {
+    padding: 8px 8px 8px 24px;
+    text-decoration: none;
+    font-size: 1.2rem; /* Smaller font size */
+    color: #f5f5f5;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #e0e0e0;
+}
+
+/* Close button for the menu */
+.side-menu .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.8rem; /* Slightly smaller font size */
+}
+
+/* Button to open the menu */
+.menu-btn {
+    font-size: 1.8rem; /* Smaller button size */
+    cursor: pointer;
+    color: #f5f5f5;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 6;
+    display: none; /* Hidden by default, will be shown on small screens */
 }
 
 .container {
@@ -89,6 +145,7 @@ h1 {
     margin-left: -2px;
 }
 
+/* Keyframes */
 @keyframes blink {
     0%, 100% {
         opacity: 1;
@@ -107,11 +164,13 @@ h1 {
     }
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.5rem;
+/* Media query to show the menu button on smaller screens */
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the menu button on small screens */
     }
+
     .navbar {
-        font-size: 0.9rem;
+        display: none; /* Hide the navbar on smaller screens */
     }
 }
