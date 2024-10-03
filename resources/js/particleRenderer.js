@@ -45,9 +45,14 @@ class Particle {
     }
 }
 
+// Set particle density factor (higher value = more particles)
+const particleDensityFactor = 0.0001; // Adjust this number to control density
+
 function init() {
     particlesArray = [];
-    for (let i = 0; i < 40; i++) {
+    const numberOfParticles = Math.floor((canvas.width * canvas.height) * particleDensityFactor);
+
+    for (let i = 0; i < numberOfParticles; i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
         particlesArray.push(new Particle(x, y));
