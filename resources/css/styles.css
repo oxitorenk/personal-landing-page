@@ -1,4 +1,10 @@
-/* General Reset */
+:root {
+    --primary-color: #f5f5f5;
+    --hover-color: #e0e0e0;
+    --background-color: #0d0d0d;
+    --text-shadow: rgba(255, 255, 255, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +21,7 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(270deg, #000000, #0d0d0d);
+    background: linear-gradient(270deg, #000000, var(--background-color));
     z-index: 0;
 }
 
@@ -23,7 +29,7 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    pointer-events: none; /* Prevent interaction with canvas */
     z-index: 1;
 }
 
@@ -34,7 +40,6 @@ body {
     flex-direction: column;
 }
 
-/* Top Navbar for larger screens */
 .navbar {
     position: absolute;
     top: 20px;
@@ -44,60 +49,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Adjust the spacing between items */
+    gap: 15px;
     font-size: 1rem;
-    color: #f5f5f5;
+    color: var(--primary-color);
 }
 
-.nav-item {
-    font-weight: 300;
-    display: inline-block;
-}
-
-.nav-divider {
+.nav-item, .nav-divider {
     display: inline-block;
 }
 
 .nav-item a {
-    color: #f5f5f5;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
 .nav-item a:hover {
-    color: #e0e0e0;
+    color: var(--hover-color);
 }
 
-/* Sidebar Menu for smaller screens */
 .side-menu {
     height: 100%;
-    width: 0; /* Start closed */
+    width: 0; /* Initially closed */
     position: fixed;
     z-index: 5;
     top: 0;
     left: 0;
     background-color: #111;
     overflow-y: auto;
-    overflow-x: hidden;
-    transition: width 0.3s; /* Smooth transition */
+    transition: width 0.3s; /* Smooth opening / closing */
     padding-top: 40px;
 }
 
 .side-menu a {
-    padding: 8px 8px 8px 24px; /* Consistent padding */
+    padding: 8px 8px 8px 24px;
     text-decoration: none;
     font-size: 1.2rem;
-    color: #f5f5f5;
+    color: var(--primary-color);
     display: block;
-    transition: 0.3s;
+    transition: 0.3s; /* Smooth transition for hover */
 }
 
-/* Add margin to the first item for spacing from the toggle button */
 .side-menu a:first-child {
-    margin-top: 40px; /* Adjust this value as needed */
+    margin-top: 40px; /* Extra space for the first link */
 }
 
 .side-menu a:hover {
-    color: #e0e0e0;
+    color: var(--hover-color);
 }
 
 .menu-btn {
@@ -106,56 +103,43 @@ body {
     top: 15px;
     left: 15px;
     z-index: 6;
-    display: none; /* Hide on larger screens */
-    width: 24px; /* Reduced width */
-    height: 24px; /* Reduced height */
-    justify-content: center; /* Center lines */
-    align-items: center; /* Center lines */
-    transition: all 0.3s ease; /* Smooth transition for button */
+    display: none; /* Hidden on larger screens */
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 .line {
-    background-color: #f5f5f5; /* Color of the lines */
-    height: 3px; /* Slightly reduced height for lines */
-    width: 100%; /* Full width */
-    position: absolute; /* Position to stack lines */
-    transition: all 0.3s ease; /* Smooth transition for lines */
-    border-radius: 2px; /* Optional: rounded edges for a smoother look */
+    background-color: var(--primary-color);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    transition: all 0.3s ease; /* Smooth transitions for lines */
+    border-radius: 2px;
 }
 
-/* First line transformation to X */
-.line1 {
-    top: 0; /* Position the first line */
-}
+.line1 { top: 0; }
+.line2 { top: 8px; }
+.line3 { top: 16px; }
 
-/* Second line transformation to X */
-.line2 {
-    top: 8px; /* Middle line */
-}
-
-/* Third line */
-.line3 {
-    top: 16px; /* Position the third line */
-}
-
-/* When menu is open */
 .menu-btn.open .line1 {
-    transform: rotate(45deg); /* Rotate first line */
+    transform: rotate(45deg); /* Rotate line1 when open */
     top: 12px; /* Adjust position */
 }
 
 .menu-btn.open .line2 {
-    opacity: 0; /* Hide the middle line */
-    transition: opacity 0.3s ease; /* Smooth transition for hiding */
+    opacity: 0; /* Hide line2 when open */
 }
 
 .menu-btn.open .line3 {
-    transform: rotate(-45deg); /* Rotate third line */
+    transform: rotate(-45deg); /* Rotate line3 when open */
     top: 12px; /* Adjust position */
 }
 
 .menu-btn:hover {
-    transform: scale(1.1); /* Scale up on hover */
+    transform: scale(1.1);
 }
 
 .container {
@@ -172,49 +156,38 @@ h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     font-weight: 300;
-    color: #f5f5f5;
+    color: var(--primary-color);
     text-align: center;
-    text-shadow:
-            0 0 2px rgba(255, 255, 255, 0.3),
-            0 0 5px rgba(255, 255, 255, 0.2);
-    animation: fadeIn 1s ease-in;
+    text-shadow: 
+        0 0 2px var(--text-shadow),
+        0 0 5px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1s ease-in; /* Fade in effect */
 }
 
 .cursor {
     display: inline-block;
     width: 2px;
     height: 1em;
-    background-color: #f5f5f5;
-    animation: blink 1s step-end infinite;
-    margin-left: -2px;
+    background-color: var(--primary-color);
+    animation: blink 1s step-end infinite; /* Blinking effect */
+    margin-left: -2px; /* Adjust position */
 }
 
-/* Keyframes */
 @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Media query to show the menu button on smaller screens */
 @media screen and (max-width: 768px) {
     .menu-btn {
-        display: block;
+        display: block; /* Show menu button on smaller screens */
     }
-
     .navbar {
-        display: none;
+        display: none; /* Hide navbar on smaller screens */
     }
 }

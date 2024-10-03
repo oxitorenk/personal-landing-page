@@ -5,47 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>I Do Things</title>
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋</text></svg>">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300|Montserrat:300" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
-<div class="background-gradient"></div>
-<canvas class="particles"></canvas>
+    <div class="background-gradient"></div>
+    <canvas class="particles"></canvas>
 
-<!-- Sidebar menu -->
-<div id="side-menu" class="side-menu">
-    <a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank">Open Source Projects</a>
-    <a href="https://study-notes.oxitorenk.com/" target="_blank">Study Notes</a>
-    <a href="https://www.linkedin.com/in/akbulutoguzhan" target="_blank">About</a>
-</div>
+    <div id="side-menu" class="side-menu" aria-hidden="true">6
+        <a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank">Open Source Projects</a>
+        <a href="https://study-notes.oxitorenk.com/" target="_blank">Study Notes</a>
+        <a href="https://www.linkedin.com/in/akbulutoguzhan" target="_blank">About</a>
+    </div>
 
-<!-- Navbar for larger screens -->
-<nav class="navbar">
-    <span class="nav-item"><a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank">Open Source Projects</a></span>
-    <span class="nav-divider">|</span>
-    <span class="nav-item"><a href="https://study-notes.oxitorenk.com/" target="_blank">Study Notes</a></span>
-    <span class="nav-divider">|</span>
-    <span class="nav-item"><a href="https://www.linkedin.com/in/akbulutoguzhan" target="_blank">About</a></span>
-</nav>
+    <nav class="navbar">
+        <span class="nav-item"><a href="https://github.com/oxitorenk?tab=repositories&q=&type=public&language=&sort=" target="_blank">Open Source Projects</a></span>
+        <span class="nav-divider">|</span>
+        <span class="nav-item"><a href="https://study-notes.oxitorenk.com/" target="_blank">Study Notes</a></span>
+        <span class="nav-divider">|</span>
+        <span class="nav-item"><a href="https://www.linkedin.com/in/akbulutoguzhan" target="_blank">About</a></span>
+    </nav>
 
-<span class="menu-btn" onclick="toggleMenu()">
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
-</span>
+    <span class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </span>
 
-<div class="container">
-    <h1>
-        <span>I</span>
-        <span id="dynamic-text"></span>
-        <span class="cursor"></span>
-    </h1>
-</div>
+    <main class="container">
+        <h1>
+            <span>I</span>
+            <span id="dynamic-text"></span>
+            <span class="cursor"></span>
+        </h1>
+    </main>
 
-<script src="resources/js/particleRenderer.js"></script>
-<script src="resources/js/typingAnimation.js"></script>
-<script src="resources/js/menuHandler.js"></script>
+    <script src="resources/js/particleRenderer.js"></script>
+    <script src="resources/js/typingAnimation.js"></script>
+    <script src="resources/js/menuHandler.js"></script>
 </body>
 </html>
